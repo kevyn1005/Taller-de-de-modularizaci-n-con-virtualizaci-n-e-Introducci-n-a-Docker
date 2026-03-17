@@ -4,6 +4,40 @@
 
 Este repositorio contiene el desarrollo del taller de virtualización usando Docker y AWS EC2. El objetivo fue construir una pequeña aplicación web en Java con Spring Boot, empaquetarla en un contenedor Docker, publicarla en Docker Hub y finalmente desplegarla en la nube usando una instancia EC2 de Amazon Web Services.
 
+## Arquitectura
+
+```
+src/
+└── main/java/co/edu/escuelaing/reflexionlab/
+    ├── MicroSpringBoot.java          # Punto de entrada y scanner de classpath
+    ├── annotations/
+    │   ├── RestController.java       # Marca una clase como controlador web
+    │   ├── GetMapping.java           # Mapea un método a una ruta HTTP GET
+    │   └── RequestParam.java        # Inyecta parámetros de query string
+    ├── controllers/
+    │   ├── HelloController.java      # Controlador de ejemplo básico
+    │   └── GreetingController.java   # Controlador con parámetros y rutas adicionales
+    └── server/
+        └── HttpServer.java           # Servidor HTTP, enrutador y handler de archivos estáticos
+```
+
+### Flujo de ejecución
+
+```
+MicroSpringBoot.main()
+    │
+    ├── [Con argumento]  → Carga la clase especificada por línea de comandos
+    │
+    └── [Sin argumento]  → Escanea el classpath buscando @RestController
+                               │
+                               └── HttpServer.registerController()
+                                       │
+                                       └── Registra rutas @GetMapping en routeMap
+                                               │
+                                               └── HttpServer.start() → Escucha en puerto 8080
+```
+
+---
 
 
 ## ¿Cómo funciona la aplicación?
@@ -155,4 +189,14 @@ Las siguientes capturas muestran el proceso completo del taller:
 ![image8.png](taller-docker/images/image8.png)
 ![image9.png](taller-docker/images/image9.png)
 ![image10.png](taller-docker/images/image10.png)
-> Las imágenes se encuentran en la carpeta `Images/` del repositorio.
+> Las imágenes se encuentran en la carpeta images/ del repositorio.
+> y las captura de la tarea se encuentra en la carpeta capture dentro de Tarea
+
+## TAREA
+![captura1.png](Tarea/capture/captura1.png)
+![captura2.png](Tarea/capture/captura2.png)
+![captura3.png](Tarea/capture/captura3.png)
+![captura4.png](Tarea/capture/captura4.png)
+![captura5.png](Tarea/capture/captura5.png)
+![captura6.png](Tarea/capture/captura6.png)
+El video del despliegue esta en el link: https://drive.google.com/drive/folders/1LjQe16FYZEIu60w2HORZz6yG6UHTCCxe?usp=drive_link
