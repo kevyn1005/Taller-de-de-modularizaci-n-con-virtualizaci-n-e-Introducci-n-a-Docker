@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>MicroSpringBoot</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 50px auto; background: #f5f5f5; }
+        h1 { color: #333; }
+        .card { background: white; border-radius: 8px; padding: 20px; margin: 15px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        a { color: #0066cc; font-size: 1.1em; }
+    </style>
+</head>
+<body>
+<h1> MicroSpringBoot</h1>
+<p>Mini IoC Framework con reflexión en Java</p>
+
+<div class="card">
+    <h2>Rutas disponibles</h2>
+    <ul>
+        <li><a href="/">/</a> — Saludo principal</li>
+        <li><a href="/hello">/hello</a> — Hello World</li>
+        <li><a href="/greeting">/greeting</a> — Saludo (nombre por defecto)</li>
+        <li><a href="/greeting?name=Juan">/greeting?name=Juan</a> — Saludo con parámetro</li>
+        <li><a href="/pi">/pi</a> — Valor de PI</li>
+        <li><a href="/count">/count</a> — Contador de visitas</li>
+    </ul>
+</div>
+</body>
+</html>
